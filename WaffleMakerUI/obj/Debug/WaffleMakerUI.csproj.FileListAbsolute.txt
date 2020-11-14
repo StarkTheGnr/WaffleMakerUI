@@ -15,3 +15,7 @@ C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Deb
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WelcomeScreen.g.cs
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\AdminScreen.baml
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WelcomeScreen.baml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\AdminControlScreen.g.cs
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\PaymentScreen.g.cs
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\AdminControlScreen.baml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\PaymentScreen.baml
