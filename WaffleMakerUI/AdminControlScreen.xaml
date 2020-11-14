@@ -1,0 +1,19 @@
+﻿<Window x:Class="WaffleMakerUI.AdminControlScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WaffleMakerUI"
+        mc:Ignorable="d"
+        Title="AdminControlSceen" Height="788" Width="800">
+    <Grid>
+        <Label x:Name="lblWafflePrice" Content="Waffle Price:" HorizontalAlignment="Left" Margin="126,267,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Image x:Name="imgBack" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="66" Source="Back-Arrow-Icon-PNG.png"/>
+        <Label x:Name="lblChocolatePrice" Content="Added Chocolate Price:" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="lblTitle" Content="Admin Panel" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Label x:Name="lblWarning" Content="*If you are not the machine administrator, please press the Back button." HorizontalAlignment="Center" Margin="0,104,0,0" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
+        <Button x:Name="lblConfirm" Content="Confirm Changes" HorizontalAlignment="Center" Margin="296,469,296,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20"/>
+        <Button x:Name="lblDiscard" Content="Discard Changes" HorizontalAlignment="Center" Margin="296,602,296,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20"/>
+
+    </Grid>
+</Window>
