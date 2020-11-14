@@ -55,16 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="AdminScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WelcomeScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AdminScreen.xaml.cs">
+      <DependentUpon>AdminScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="WelcomeScreen.xaml.cs">
+      <DependentUpon>WelcomeScreen.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -93,6 +100,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back-arrow-1767531-1502435.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Back-Arrow-Icon-PNG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
