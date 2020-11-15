@@ -30,3 +30,4 @@ C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Deb
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\EndScreen.baml
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\ErrorScreen.baml
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaffleMakerUI.csproj.CopyComplete
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\PaxPOSECRDriver.dll

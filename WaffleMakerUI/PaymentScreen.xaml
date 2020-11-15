@@ -32,9 +32,9 @@
         <Separator HorizontalAlignment="Left" Height="19" Margin="258,219,0,0" VerticalAlignment="Top" Width="276"/>
         <Label x:Name="lblDesc1" Content="Please pay" Margin="133,381,0,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="103"/>
         <Label x:Name="lblTotalPriceDesc" Margin="232,384,0,0" Content="00 EGP" FontSize="18" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="lblDesc2" Content="in the point of sale below your screen." HorizontalAlignment="Left" Margin="315,381,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lblDesc2" Content="through the point of sale below your screen." HorizontalAlignment="Left" Margin="315,381,0,0" VerticalAlignment="Top" FontSize="20"/>
         <fa:FontAwesome Icon="Refresh" FontSize="30px" Spin="True" Width="30px" Height="30px" Margin="380,474,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button x:Name="btnCancel" Content="Cancel Order" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="160" Background="White" Height="74" FontSize="20"/>
+        <Button x:Name="btnCancel" Content="Cancel Order" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="160" Background="White" Height="74" FontSize="20" Click="btnCancel_Click"/>
 
     </Grid>
 </Window>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO.Ports;
 
 namespace WaffleMakerUI
 {
@@ -19,6 +20,8 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class PaymentScreen : Window
 	{
+		POSHandler posHandler = new POSHandler("COM1");
+
 		public PaymentScreen()
 		{
 			InitializeComponent();
@@ -63,6 +66,16 @@ namespace WaffleMakerUI
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			RepositionDescriptionLabel();
+
+			int? port = posHandler.TestConnection("COM1");
+		}
+
+		private void btnCancel_Click(object sender, RoutedEventArgs e)
+		{
+			//TODO cancel payment on POS
+			WelcomeScreen ws = new WelcomeScreen();
+			ws.Show();
+			Close();
 		}
 	}
 }

@@ -40,6 +40,9 @@
     <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="PaxPOSECRDriver">
+      <HintPath>..\..\PaxPOSECRDriver.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -107,6 +110,7 @@
     <Compile Include="PaymentScreen.xaml.cs">
       <DependentUpon>PaymentScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="POSHandler.cs" />
     <Compile Include="WaffleMachine.cs" />
     <Compile Include="WaitingScreen.xaml.cs">
       <DependentUpon>WaitingScreen.xaml</DependentUpon>
