@@ -25,6 +25,12 @@ namespace WaffleMakerUI
 		public WelcomeScreen()
 		{
 			InitializeComponent();
+
+			lblWaffleNum.Content = wm?.GetWaffles() ?? 0;
+			lblChocolateNum.Content = wm?.GetChocolateWaffles() ?? 0;
+
+			lblWafflePrice.Content = wm.WafflePrice + " EGP each";
+			lblChocolatePrice.Content = wm.ChocolatePrice + " EGP each";
 		}
 
 		private void btnWafflesPlus_Click(object sender, RoutedEventArgs e)

@@ -14,6 +14,9 @@ namespace WaffleMakerUI
 		private int waffles = 0;
 		private int chocolateWaffles = 0;
 
+		public float WafflePrice { get; set; } = 10.00f;
+		public float ChocolatePrice { get; set; } = 5.00f;
+
 		private WaffleMachine() { }
 
 		public static WaffleMachine Get_Instance()

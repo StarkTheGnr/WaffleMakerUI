@@ -41,5 +41,23 @@ namespace WaffleMakerUI
 		{
 			ResetToWelcomeScreen();
 		}
+
+		private void btnLogin_Click(object sender, RoutedEventArgs e)
+		{
+			//TODO Password Check
+			string password = txtPass.Password;
+			if(password == "testpass")
+			{
+				AdminControlScreen acs = new AdminControlScreen();
+				acs.Show();
+				Close();
+			}
+			else
+			{
+				txtPass.Clear();
+				lblError.Visibility = Visibility.Visible;
+				txtPass.Focus();
+			}
+		}
 	}
 }

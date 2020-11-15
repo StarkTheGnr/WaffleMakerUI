@@ -8,14 +8,17 @@
         Title="Administrator Panel" Height="788" Width="800">
     <Grid>
         <Label x:Name="lblWafflePrice" Content="Waffle Price:" HorizontalAlignment="Left" Margin="126,267,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Image x:Name="imgBack" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="66" Source="Back-Arrow-Icon-PNG.png"/>
+        <Button x:Name="btnBack" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnBack_Click">
+            <Image x:Name="imgBack" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="66" Source="Back-Arrow-Icon-PNG.png"/>
+        </Button>
         <Label x:Name="lblChocolatePrice" Content="Added Chocolate Price:" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="lblTitle" Content="Admin Panel" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
         <Label x:Name="lblWarning" Content="*If you are not the machine administrator, please press the Back button." HorizontalAlignment="Center" Margin="0,104,0,0" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
-        <Button x:Name="btnConfirm" Content="Confirm Changes" HorizontalAlignment="Center" Margin="0,469,0,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20"/>
-        <Button x:Name="btnDiscard" Content="Discard Changes" HorizontalAlignment="Center" Margin="0,602,0,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20"/>
+        <Button x:Name="btnConfirm" Content="Confirm Changes" HorizontalAlignment="Center" Margin="0,469,0,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20" Click="btnConfirm_Click"/>
+        <Button x:Name="btnDiscard" Content="Discard Changes" HorizontalAlignment="Center" Margin="0,602,0,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20" Click="btnDiscard_Click"/>
         <TextBox x:Name="txtWafflePrice" HorizontalAlignment="Left" Height="43" Margin="296,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" FontSize="24"/>
         <TextBox x:Name="txtChocolatePrice" HorizontalAlignment="Left" Height="43" Margin="296,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" FontSize="24"/>
+        <Label x:Name="lblError" Visibility="Hidden" Content="Something went wrong. Please check your input." HorizontalAlignment="Center" Margin="0,422,0,0" VerticalAlignment="Top" Foreground="Red" FontSize="20"/>
 
     </Grid>
 </Window>
