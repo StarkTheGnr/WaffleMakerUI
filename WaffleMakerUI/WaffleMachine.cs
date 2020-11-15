@@ -75,5 +75,18 @@ namespace WaffleMakerUI
 			waffles = 0;
 			chocolateWaffles = 0;
 		}
+
+		public float CalculateWaffleTotal()
+		{
+			return waffles * WafflePrice;
+		}
+		public float CalculateChocolateTotal()
+		{
+			return chocolateWaffles * ChocolatePrice;
+		}
+		public float CalculateTotal()
+		{
+			return CalculateWaffleTotal() + CalculateChocolateTotal();
+		}
 	}
 }

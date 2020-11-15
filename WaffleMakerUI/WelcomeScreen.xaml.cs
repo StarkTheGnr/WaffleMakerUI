@@ -64,5 +64,12 @@ namespace WaffleMakerUI
 			adminScreen.Show();
 			Close();
 		}
+
+		private void btnConfirm_Click(object sender, RoutedEventArgs e)
+		{
+			PaymentScreen ps = new PaymentScreen();
+			ps.Show();
+			Close();
+		}
 	}
 }
