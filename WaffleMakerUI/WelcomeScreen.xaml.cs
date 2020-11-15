@@ -20,6 +20,8 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		WaffleMachine wm = WaffleMachine.Get_Instance();
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -27,7 +29,27 @@ namespace WaffleMakerUI
 
 		private void btnWafflesPlus_Click(object sender, RoutedEventArgs e)
 		{
+			int waffles = wm.AddWaffle();
+			lblWaffleNum.Content = waffles;
+		}
 
+		private void btnWafflesMinus_Click(object sender, RoutedEventArgs e)
+		{
+			int waffles = wm.RemoveWaffle();
+			lblWaffleNum.Content = waffles;
+			lblChocolateNum.Content = wm.GetChocolateWaffles();
+		}
+
+		private void btnChocolatePlus_Click(object sender, RoutedEventArgs e)
+		{
+			int chocoAddOn = wm.AddChocolate();
+			lblChocolateNum.Content = chocoAddOn;
+		}
+
+		private void btnChocolateMinus_Click(object sender, RoutedEventArgs e)
+		{
+			int chocoAddOn = wm.RemoveChocolate();
+			lblChocolateNum.Content = chocoAddOn;
 		}
 	}
 }

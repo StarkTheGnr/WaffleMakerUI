@@ -16,20 +16,20 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="131" Margin="69,0,0,403" VerticalAlignment="Bottom" Width="198">
             <Label x:Name="lblWaffleNum" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Width="Auto"/>
         </Border>
-        <Button x:Name="btnWafflesPlus" HorizontalAlignment="Left" Margin="69,0,0,293" VerticalAlignment="Bottom" Width="85" Height="92" Background="White" FontSize="48">
+        <Button x:Name="btnWafflesPlus" HorizontalAlignment="Left" Margin="69,0,0,293" VerticalAlignment="Bottom" Width="85" Height="92" Background="White" FontSize="48" Click="btnWafflesPlus_Click">
             <TextBlock Text="+" Margin="0, -3, 0, 0"/>
         </Button>
-        <Button x:Name="btnWafflesMinus" HorizontalAlignment="Left" Margin="182,0,0,293" VerticalAlignment="Bottom" Width="85" Height="92" Background="White" FontSize="48">
+        <Button x:Name="btnWafflesMinus" HorizontalAlignment="Left" Margin="182,0,0,293" VerticalAlignment="Bottom" Width="85" Height="92" Background="White" FontSize="48" Click="btnWafflesMinus_Click">
             <TextBlock Text="-" Margin="0, -3, 0, 0"/>
         </Button>
         <Label x:Name="lblChocolate" Content="How many of them with Chocolate?" Margin="0,0,55,539" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Right" Width="262"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Height="131" Margin="0,0,73,403" VerticalAlignment="Bottom" Width="198">
             <Label x:Name="lblChocolateNum" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Width="Auto"/>
         </Border>
-        <Button x:Name="btnChocolatePlus" HorizontalAlignment="Right" Margin="0,0,186,293" VerticalAlignment="Bottom" Width="85" Height="92" Background="White" FontSize="48">
+        <Button x:Name="btnChocolatePlus" HorizontalAlignment="Right" Margin="0,0,186,293" VerticalAlignment="Bottom" Width="85" Height="92" Background="White" FontSize="48" Click="btnChocolatePlus_Click">
             <TextBlock Text="+" Margin="0, -3, 0, 0"/>
         </Button>
-        <Button x:Name="btnChocolateMinus" HorizontalAlignment="Right" Margin="0,0,73,293" VerticalAlignment="Bottom" Width="85" Height="92" Background="White" FontSize="48">
+        <Button x:Name="btnChocolateMinus" HorizontalAlignment="Right" Margin="0,0,73,293" VerticalAlignment="Bottom" Width="85" Height="92" Background="White" FontSize="48" Click="btnChocolateMinus_Click">
             <TextBlock Text="-" Margin="0, -3, 0, 0"/>
         </Button>
         <Button x:Name="btnConfirm" Content="Confirm Order" Margin="0,0,0,115" Background="White" FontSize="20" HorizontalAlignment="Center" Width="167" Height="76" VerticalAlignment="Bottom"/>

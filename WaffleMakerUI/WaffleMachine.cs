@@ -8,6 +8,7 @@ namespace WaffleMakerUI
 {
 	class WaffleMachine
 	{
+		static object lockVar = new object();
 		public static WaffleMachine wm_instance;
 
 		private int waffles = 0;
@@ -17,15 +18,59 @@ namespace WaffleMakerUI
 
 		public static WaffleMachine Get_Instance()
 		{
-			if(wm_instance != null)
+			if(wm_instance == null)
 			{
-				lock (wm_instance)
+				lock (lockVar)
 				{
 					wm_instance ??= new WaffleMachine();
 				}
 			}
 
 			return wm_instance;
+		}
+
+		public int GetWaffles()
+		{
+			return waffles;
+		}
+		public int GetChocolateWaffles()
+		{
+			return chocolateWaffles;
+		}
+		public int AddWaffle()
+		{
+			return ++waffles;
+		}
+		public int RemoveWaffle()
+		{
+			if (waffles > 0)
+			{
+				if (waffles == chocolateWaffles)
+					chocolateWaffles--;
+				return --waffles;
+			}
+
+			return waffles;
+		}
+		public int AddChocolate()
+		{
+			if (chocolateWaffles < waffles)
+				return ++chocolateWaffles;
+
+			return chocolateWaffles;
+		}
+		public int RemoveChocolate()
+		{
+			if (chocolateWaffles > 0)
+				return --chocolateWaffles;
+
+			return chocolateWaffles;
+		}
+
+		public void Reset()
+		{
+			waffles = 0;
+			chocolateWaffles = 0;
 		}
 	}
 }
