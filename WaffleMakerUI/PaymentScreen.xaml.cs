@@ -20,7 +20,7 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class PaymentScreen : Window
 	{
-		POSHandler posHandler = new POSHandler("COM1");
+		POSHandler posHandler = new POSHandler();
 
 		public PaymentScreen()
 		{
@@ -67,7 +67,9 @@ namespace WaffleMakerUI
 			LoadReceipt();
 			RepositionDescriptionLabel();
 
-			int transResult = await posHandler.DoTransaction(1.00f, "01", true);
+			int transResult = await posHandler.DoTransaction(1.00f, "01", false);
+
+			MessageBox.Show(transResult.ToString());
 
 			if(transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
 			{
