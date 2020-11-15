@@ -11,9 +11,9 @@ namespace WaffleMakerUI
 	class POSHandler
 	{
 		public string portName = "COM1";
+		public POSCardTransResponse response;
 
 		PaxPOSECRDriver driver = new PaxPOSECRDriver();
-		POSCardTransResponse response = new POSCardTransResponse();
 
 		public POSHandler(string port)
 		{
@@ -26,6 +26,21 @@ namespace WaffleMakerUI
 			int result = driver.POSTestConnection(port, out eftVer, out libVer);
 
 			return result;
+		}
+
+		public async Task<int> DoTransaction(float amount, string referenceNo, bool testConnFirst)
+		{
+			int testConnResult = TestConnection(portName);
+			if (!testConnFirst || testConnResult == 0)
+			{
+				response = null;
+				string msg = String.Empty;
+				int result = driver.POSDoCardTransaction(portName, POSTransType.SALE, amount.ToString(), referenceNo, out response, out msg);
+
+				return result;
+			}
+
+			return testConnResult;
 		}
 	}
 }

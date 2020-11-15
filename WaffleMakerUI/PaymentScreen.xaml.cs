@@ -63,11 +63,16 @@ namespace WaffleMakerUI
 			lblDesc2.Margin = new Thickness(marginLeft, lblDesc2.Margin.Top, 0, 0);
 		}
 
-		private void Window_Loaded(object sender, RoutedEventArgs e)
+		private async void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			RepositionDescriptionLabel();
 
-			int? port = posHandler.TestConnection("COM1");
+			int transResult = await posHandler.DoTransaction(1.00f, "01", true);
+
+			if(transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
+			{
+
+			}
 		}
 
 		private void btnCancel_Click(object sender, RoutedEventArgs e)
