@@ -24,5 +24,10 @@ namespace WaffleMakerUI
 		{
 			InitializeComponent();
 		}
+
+		private void btnWafflesPlus_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

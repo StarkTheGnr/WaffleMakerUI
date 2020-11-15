@@ -180,6 +180,12 @@ namespace WaffleMakerUI {
             return;
             case 5:
             this.btnWafflesPlus = ((System.Windows.Controls.Button)(target));
+            
+            #line 19 "..\..\WelcomeScreen.xaml"
+            this.btnWafflesPlus.Click += new System.Windows.RoutedEventHandler(this.btnWafflesPlus_Click);
+            
+            #line default
+            #line hidden
             return;
             case 6:
             this.btnWafflesMinus = ((System.Windows.Controls.Button)(target));
