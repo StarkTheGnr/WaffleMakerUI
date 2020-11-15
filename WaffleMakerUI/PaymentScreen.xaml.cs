@@ -26,7 +26,6 @@ namespace WaffleMakerUI
 		{
 			InitializeComponent();
 
-			LoadReceipt();
 		}
 
 		void LoadReceipt()
@@ -65,13 +64,16 @@ namespace WaffleMakerUI
 
 		private async void Window_Loaded(object sender, RoutedEventArgs e)
 		{
+			LoadReceipt();
 			RepositionDescriptionLabel();
 
 			int transResult = await posHandler.DoTransaction(1.00f, "01", true);
 
 			if(transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
 			{
-
+				WaitingScreen ws = new WaitingScreen();
+				ws.Show();
+				Close();
 			}
 		}
 

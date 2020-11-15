@@ -10,5 +10,6 @@
     <Grid>
         <Label Content="Please wait while your order is being prepared..." HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" FontSize="20"/>
         <fa:FontAwesome Icon="Refresh" FontSize="30px" Spin="True" Width="30px" Height="30px" />
+        <Label Content="Your payment was successful. " HorizontalAlignment="Center" Margin="181,203,181,0" VerticalAlignment="Top" FontSize="20"/>
     </Grid>
 </Window>
