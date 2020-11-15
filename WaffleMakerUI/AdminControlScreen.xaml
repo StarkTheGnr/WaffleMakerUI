@@ -12,8 +12,10 @@
         <Label x:Name="lblChocolatePrice" Content="Added Chocolate Price:" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="lblTitle" Content="Admin Panel" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
         <Label x:Name="lblWarning" Content="*If you are not the machine administrator, please press the Back button." HorizontalAlignment="Center" Margin="0,104,0,0" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
-        <Button x:Name="lblConfirm" Content="Confirm Changes" HorizontalAlignment="Center" Margin="0,469,0,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20"/>
-        <Button x:Name="lblDiscard" Content="Discard Changes" HorizontalAlignment="Center" Margin="0,602,0,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20"/>
+        <Button x:Name="btnConfirm" Content="Confirm Changes" HorizontalAlignment="Center" Margin="0,469,0,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20"/>
+        <Button x:Name="btnDiscard" Content="Discard Changes" HorizontalAlignment="Center" Margin="0,602,0,0" VerticalAlignment="Top" Width="200" Height="95" Background="White" FontSize="20"/>
+        <TextBox x:Name="txtWafflePrice" HorizontalAlignment="Left" Height="43" Margin="296,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" FontSize="24"/>
+        <TextBox x:Name="txtChocolatePrice" HorizontalAlignment="Left" Height="43" Margin="296,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" FontSize="24"/>
 
     </Grid>
 </Window>
