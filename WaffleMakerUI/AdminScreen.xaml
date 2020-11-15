@@ -10,10 +10,11 @@
         <Label x:Name="lblPass" Content="Please enter your admin password:" HorizontalAlignment="Left" Margin="81,259,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="lblWarning" Content="*If you are not an admin or you came here by mistake, please press the back button" HorizontalAlignment="Left" Margin="81,228,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="184,306,0,0" VerticalAlignment="Top" Width="320" FontSize="24"/>
-        <Image x:Name="imgBack" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="66" Source="Back-Arrow-Icon-PNG.png"/>
-        <Button x:Name="btnBack" Content="Back to Welcome Screen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="203" Height="74" Background="White" FontSize="16" RenderTransformOrigin="0.571,0.568"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click">
+            <Image x:Name="imgBack" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="66" Source="Back-Arrow-Icon-PNG.png"/>
+        </Button>
+        <Button x:Name="btnBack" Content="Back to Welcome Screen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="203" Height="74" Background="White" FontSize="16" RenderTransformOrigin="0.571,0.568" Click="btnBack_Click"/>
         <Button x:Name="btnLogin" Content="Login as Admin" HorizontalAlignment="Right" Margin="0,0,333,312" VerticalAlignment="Bottom" Width="158" Height="66" Background="White" FontSize="16" RenderTransformOrigin="0.571,0.568"/>
         <Label x:Name="lblError" Content="Password is incorrect. Please try again!" HorizontalAlignment="Left" Margin="233,456,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Red" Visibility="Hidden"/>
-
     </Grid>
 </Window>

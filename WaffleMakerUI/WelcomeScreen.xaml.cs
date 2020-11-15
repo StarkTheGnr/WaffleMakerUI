@@ -18,11 +18,11 @@ namespace WaffleMakerUI
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class WelcomeScreen : Window
 	{
 		WaffleMachine wm = WaffleMachine.Get_Instance();
 
-		public MainWindow()
+		public WelcomeScreen()
 		{
 			InitializeComponent();
 		}
@@ -50,6 +50,13 @@ namespace WaffleMakerUI
 		{
 			int chocoAddOn = wm.RemoveChocolate();
 			lblChocolateNum.Content = chocoAddOn;
+		}
+
+		private void btnAdmin_Click(object sender, RoutedEventArgs e)
+		{
+			AdminScreen adminScreen = new AdminScreen();
+			adminScreen.Show();
+			Close();
 		}
 	}
 }
