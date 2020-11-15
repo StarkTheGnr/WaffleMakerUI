@@ -26,6 +26,7 @@ namespace WaffleMakerUI
 		{
 			InitializeComponent();
 
+			LoadReceipt();
 		}
 
 		void LoadReceipt()
@@ -40,7 +41,7 @@ namespace WaffleMakerUI
 				lblWafflesCount.Visibility = Visibility.Visible;
 				lblWafflesPrice.Visibility = Visibility.Visible;
 
-				lblWafflesCount.Content = "Waffles x" + wm.GetWaffles();
+				lblWafflesCount.Content = "Waffles x" + wm.GetWaffleCount();
 				lblWafflesPrice.Content = wafflePrice + " EGP";
 			}
 			if (chocolatePrice > 0)
@@ -48,7 +49,7 @@ namespace WaffleMakerUI
 				lblChocolateCount.Visibility = Visibility.Visible;
 				lblChocolatePrice.Visibility = Visibility.Visible;
 
-				lblChocolateCount.Content = "Chocolate x" + wm.GetChocolateWaffles();
+				lblChocolateCount.Content = "Chocolate x" + wm.GetChocolateWaffleCount();
 				lblChocolatePrice.Content = chocolatePrice + " EGP";
 			}
 
@@ -64,12 +65,9 @@ namespace WaffleMakerUI
 
 		private async void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			LoadReceipt();
 			RepositionDescriptionLabel();
 
 			int transResult = await posHandler.DoTransaction(1.00f, "01", false);
-
-			MessageBox.Show(transResult.ToString());
 
 			if(transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
 			{

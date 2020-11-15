@@ -69,7 +69,6 @@ namespace WaffleMakerUI
 
 		public async Task<int> DoTransaction(float amount, string referenceNo, bool testConnFirst)
 		{
-			await Task.Delay(3000);
 			int testConnResult = 0;
 			if(testConnFirst)
 				TestConnection(portName);

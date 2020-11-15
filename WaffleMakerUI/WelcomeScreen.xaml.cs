@@ -26,8 +26,8 @@ namespace WaffleMakerUI
 		{
 			InitializeComponent();
 
-			lblWaffleNum.Content = wm?.GetWaffles() ?? 0;
-			lblChocolateNum.Content = wm?.GetChocolateWaffles() ?? 0;
+			lblWaffleNum.Content = wm?.GetWaffleCount() ?? 0;
+			lblChocolateNum.Content = wm?.GetChocolateWaffleCount() ?? 0;
 
 			lblWafflePrice.Content = wm.WafflePrice + " EGP each";
 			lblChocolatePrice.Content = wm.ChocolatePrice + " EGP each";
@@ -43,7 +43,7 @@ namespace WaffleMakerUI
 		{
 			int waffles = wm.RemoveWaffle();
 			lblWaffleNum.Content = waffles;
-			lblChocolateNum.Content = wm.GetChocolateWaffles();
+			lblChocolateNum.Content = wm.GetChocolateWaffleCount();
 		}
 
 		private void btnChocolatePlus_Click(object sender, RoutedEventArgs e)
@@ -67,9 +67,12 @@ namespace WaffleMakerUI
 
 		private void btnConfirm_Click(object sender, RoutedEventArgs e)
 		{
-			PaymentScreen ps = new PaymentScreen();
-			ps.Show();
-			Close();
+			if (wm.GetWaffleCount() > 0)
+			{
+				PaymentScreen ps = new PaymentScreen();
+				ps.Show();
+				Close();
+			}
 		}
 	}
 }

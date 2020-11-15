@@ -32,11 +32,11 @@ namespace WaffleMakerUI
 			return wm_instance;
 		}
 
-		public int GetWaffles()
+		public int GetWaffleCount()
 		{
 			return waffles;
 		}
-		public int GetChocolateWaffles()
+		public int GetChocolateWaffleCount()
 		{
 			return chocolateWaffles;
 		}
