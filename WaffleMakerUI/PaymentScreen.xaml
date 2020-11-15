@@ -3,12 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:WaffleMakerUI"
         mc:Ignorable="d"
         Title="Your Receipt" Height="800" Width="800">
     <Grid>
-        <Label x:Name="lblTitle" Content="Your Receipt" HorizontalAlignment="Center" Margin="285,29,285,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="164" Margin="258,120,258,0" VerticalAlignment="Top" Width="276">
+        <Label x:Name="lblTitle" Content="Your Receipt" HorizontalAlignment="Left" Margin="285,29,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="164" Margin="258,120,0,0" VerticalAlignment="Top" Width="276">
             <Grid VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -29,10 +30,10 @@
             </Grid>
         </Border>
         <Separator HorizontalAlignment="Left" Height="19" Margin="258,219,0,0" VerticalAlignment="Top" Width="276"/>
-        <Label x:Name="lblDesc1" Content="Please pay" HorizontalAlignment="Right" Margin="0,381,556,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="lblTotalPriceDesc" Margin="0,384,470,351" Content="51.3 EGP" FontSize="18" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Right" Width="90"/>
-        <Label x:Name="lblDesc2" Content="in the point of sale below your screen." HorizontalAlignment="Right" Margin="0,381,131,0" VerticalAlignment="Top" FontSize="20"/>
-        <Image x:Name="imgLoading" HorizontalAlignment="Center" Height="100" Margin="0,475,0,0" VerticalAlignment="Top" Width="100" Source="Back-Arrow-Icon-PNG.png"/>
+        <Label x:Name="lblDesc1" Content="Please pay" Margin="133,381,0,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="103"/>
+        <Label x:Name="lblTotalPriceDesc" Margin="232,384,0,0" Content="51.3 EGP" FontSize="18" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Left" Width="90" Height="34" VerticalAlignment="Top"/>
+        <Label x:Name="lblDesc2" Content="in the point of sale below your screen." HorizontalAlignment="Left" Margin="315,381,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <fa:FontAwesome Icon="Refresh" FontSize="30px" Spin="True" Width="30px" Height="30px" Margin="380,474,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Button x:Name="btnCancel" Content="Cancel Order" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="160" Background="White" Height="74" FontSize="20"/>
 
     </Grid>

@@ -19,3 +19,14 @@ C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Deb
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\PaymentScreen.g.cs
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\AdminControlScreen.baml
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\PaymentScreen.baml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaitingScreen.g.cs
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaitingScreen.baml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaffleMakerUI_Content.g.cs
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\App.baml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\FontAwesome.WPF.dll
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\FontAwesome.WPF.xml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\EndScreen.g.cs
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\ErrorScreen.g.cs
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\EndScreen.baml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\ErrorScreen.baml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaffleMakerUI.csproj.CopyComplete
