@@ -23,5 +23,18 @@ namespace WaffleMakerUI
 		{
 			InitializeComponent();
 		}
+
+		void ResetToWelcomeScreen()
+		{
+			WaffleMachine.Get_Instance().Reset();
+			WelcomeScreen ws = new WelcomeScreen();
+			ws.Show();
+			Close();
+		}
+
+		private void btnBack_Click(object sender, RoutedEventArgs e)
+		{
+			ResetToWelcomeScreen();
+		}
 	}
 }
