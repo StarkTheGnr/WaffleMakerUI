@@ -1,0 +1,1 @@
+11:46:44 AM Monday, November 16, 2020  Reference Number: 000000000013, Amount Paid: 35 EGP, Transaction Result: FAILURE(-22)

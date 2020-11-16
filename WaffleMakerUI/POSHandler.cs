@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows;
 using System.Threading.Tasks;
 using PaxPOSECR;
+using System.IO;
 using System.IO.Ports;
 
 namespace WaffleMakerUI
@@ -15,6 +16,7 @@ namespace WaffleMakerUI
 		public POSCardTransResponse response;
 
 		PaxPOSECRDriver driver = new PaxPOSECRDriver();
+		ReferenceNumber referenceNumber = new ReferenceNumber();
 
 		public POSHandler(string port)
 		{
@@ -67,7 +69,7 @@ namespace WaffleMakerUI
 			return string.Format("{0:0.00}", amount);
 		}
 
-		public async Task<int> DoTransaction(float amount, string referenceNo, bool testConnFirst)
+		public async Task<int> DoTransaction(float amount, bool testConnFirst)
 		{
 			int testConnResult = 0;
 			if(testConnFirst)
@@ -80,12 +82,27 @@ namespace WaffleMakerUI
 
 				response = null;
 				string msg = "";
-				int result = driver.POSDoCardTransaction(portName, POSTransType.SALE, ParseAmount(amount), referenceNo, out response, out msg);
+				string RNo = referenceNumber.GetNewRNo();
+				int result = driver.POSDoCardTransaction(portName, POSTransType.SALE, ParseAmount(amount), RNo, out response, out msg);
+
+				Log(RNo, amount, result);
+				referenceNumber.IncrementRNo();
 
 				return result;
 			}
 
 			return testConnResult;
+		}
+
+		public void Log(string RNo, float amount, int errorCode)
+		{
+			using (StreamWriter log = File.AppendText("transaction_log.txt"))
+			{
+				string result = (errorCode == 0) ? "SUCCESS" : "FAILURE(" + errorCode + ")";
+
+				log.WriteLine(DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString() + "  Reference Number: " + RNo + ", Amount Paid: " + amount + " EGP, Transaction Result: " + result);
+				log.Close();
+			}
 		}
 	}
 }

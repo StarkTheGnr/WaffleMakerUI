@@ -115,6 +115,7 @@
       <DependentUpon>PaymentScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="POSHandler.cs" />
+    <Compile Include="ReferenceNumber.cs" />
     <Compile Include="WaffleMachine.cs" />
     <Compile Include="WaitingScreen.xaml.cs">
       <DependentUpon>WaitingScreen.xaml</DependentUpon>

@@ -57,18 +57,12 @@ namespace WaffleMakerUI
 			lblTotalPriceDesc.Content = total + " EGP";
 		}
 
-		void RepositionDescriptionLabel()
-		{
-			double marginLeft = lblTotalPriceDesc.Margin.Left + lblTotalPriceDesc.ActualWidth;
-			lblDesc2.Margin = new Thickness(marginLeft, lblDesc2.Margin.Top, 0, 0);
-		}
-
 		private async void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			RepositionDescriptionLabel();
 
 			float totalToPay = WaffleMachine.Get_Instance().CalculateTotal();
-			Task<int> transactionTask = posHandler.DoTransaction(totalToPay, "01", false);
+			Task<int> transactionTask = posHandler.DoTransaction(totalToPay, false);
 
 			int transResult = await transactionTask;
 			lblDebug.Content += " " + transResult;
@@ -78,6 +72,12 @@ namespace WaffleMakerUI
 				ws.Show();
 				Close();
 			}
+		}
+
+		void RepositionDescriptionLabel()
+		{
+			double marginLeft = lblTotalPriceDesc.Margin.Left + lblTotalPriceDesc.ActualWidth;
+			lblDesc2.Margin = new Thickness(marginLeft, lblDesc2.Margin.Top, 0, 0);
 		}
 
 		private void btnCancel_Click(object sender, RoutedEventArgs e)
