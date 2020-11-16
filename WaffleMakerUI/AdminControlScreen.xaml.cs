@@ -55,6 +55,7 @@ namespace WaffleMakerUI
 			{
 				wm.WafflePrice = newWafflePrice;
 				wm.ChocolatePrice = newChocolatePrice;
+				wm.SavePrices();
 
 				ResetToWelcomeScreen();
 			}

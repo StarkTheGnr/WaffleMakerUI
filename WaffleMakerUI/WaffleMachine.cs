@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WaffleMakerUI.Properties;
 
 namespace WaffleMakerUI
 {
@@ -14,10 +15,26 @@ namespace WaffleMakerUI
 		private int waffles = 0;
 		private int chocolateWaffles = 0;
 
-		public float WafflePrice { get; set; } = 10.00f;
-		public float ChocolatePrice { get; set; } = 5.00f;
+		public float WafflePrice { get; set; } = 0.00f;
+		public float ChocolatePrice { get; set; } = 0.00f;
 
-		private WaffleMachine() { }
+		private WaffleMachine() 
+		{
+			LoadPrices();
+		}
+
+		private void LoadPrices()
+		{
+			WafflePrice = Settings.Default.WafflePrice;
+			ChocolatePrice = Settings.Default.ChocolatePrice;
+		}
+
+		public void SavePrices()
+		{
+			Settings.Default.WafflePrice = WafflePrice;
+			Settings.Default.ChocolatePrice = ChocolatePrice;
+			Settings.Default.Save();
+		}
 
 		public static WaffleMachine Get_Instance()
 		{

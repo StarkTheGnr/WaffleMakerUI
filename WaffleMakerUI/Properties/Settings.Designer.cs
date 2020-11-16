@@ -22,5 +22,41 @@ namespace WaffleMakerUI.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00000000")]
+        public string LastRNo {
+            get {
+                return ((string)(this["LastRNo"]));
+            }
+            set {
+                this["LastRNo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public float WafflePrice {
+            get {
+                return ((float)(this["WafflePrice"]));
+            }
+            set {
+                this["WafflePrice"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public float ChocolatePrice {
+            get {
+                return ((float)(this["ChocolatePrice"]));
+            }
+            set {
+                this["ChocolatePrice"] = value;
+            }
+        }
     }
 }
