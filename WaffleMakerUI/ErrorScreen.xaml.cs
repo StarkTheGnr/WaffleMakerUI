@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WaffleMakerUI
 {
@@ -35,6 +36,17 @@ namespace WaffleMakerUI
 		private void btnBack_Click(object sender, RoutedEventArgs e)
 		{
 			ResetToWelcomeScreen();
+		}
+
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			DispatcherTimer timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(30) };
+			timer.Tick += (sender, args) =>
+			{
+				timer.Stop();
+				ResetToWelcomeScreen();
+			};
+			timer.Start();
 		}
 	}
 }
