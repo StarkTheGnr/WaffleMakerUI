@@ -70,8 +70,8 @@ namespace WaffleMakerUI
 			float totalToPay = WaffleMachine.Get_Instance().CalculateTotal();
 			Task<int> transactionTask = posHandler.DoTransaction(totalToPay, "01", false);
 
-			
 			int transResult = await transactionTask;
+			lblDebug.Content += " " + transResult;
 			if(transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
 			{
 				WaitingScreen ws = new WaitingScreen();
