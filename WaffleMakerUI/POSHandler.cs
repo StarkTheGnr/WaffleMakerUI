@@ -100,7 +100,7 @@ namespace WaffleMakerUI
 			{
 				string result = (errorCode == 0) ? "SUCCESS" : "FAILURE(" + errorCode + ")";
 
-				log.WriteLine(DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString() + "  Reference Number: " + RNo + ", Amount Paid: " + amount + " EGP, Transaction Result: " + result);
+				log.WriteLine(DateTime.Now.ToLongTimeString().PadRight(12) + " " + DateTime.Now.ToLongDateString().PadRight(29) + "  Reference Number: " + RNo + ", Amount Paid: " + amount + " EGP, Transaction Result: " + result);
 				log.Close();
 			}
 		}
