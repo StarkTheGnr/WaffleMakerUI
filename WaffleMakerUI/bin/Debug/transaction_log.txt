@@ -5,3 +5,4 @@
 4:35:24 PM Monday, November 16, 2020  Reference Number: 000000000017, Amount Paid: 56.7 EGP, Transaction Result: FAILURE(-22)
 4:35:29 PM Monday, November 16, 2020  Reference Number: 000000000018, Amount Paid: 66.9 EGP, Transaction Result: FAILURE(-22)
 4:44:15 PM Monday, November 16, 2020  Reference Number: 000000000019, Amount Paid: 46.1 EGP, Transaction Result: FAILURE(-22)
+10:13:29 AM Tuesday, November 17, 2020  Reference Number: 000000000020, Amount Paid: 35.9 EGP, Transaction Result: FAILURE(-22)

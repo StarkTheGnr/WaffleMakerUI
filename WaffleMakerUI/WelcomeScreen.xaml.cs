@@ -26,8 +26,8 @@ namespace WaffleMakerUI
 		{
 			InitializeComponent();
 
-			lblWaffleNum.Content = wm?.GetWaffleCount() ?? 0;
-			lblChocolateNum.Content = wm?.GetChocolateWaffleCount() ?? 0;
+			lblWaffleNum.Content = wm?.GetWaffleCount();
+			lblChocolateNum.Content = wm?.GetChocolateWaffleCount();
 
 			lblWafflePrice.Content = wm.WafflePrice + " EGP each";
 			lblChocolatePrice.Content = wm.ChocolatePrice + " EGP each";

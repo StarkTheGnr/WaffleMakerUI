@@ -73,7 +73,7 @@ namespace WaffleMakerUI
 		{
 			int testConnResult = 0;
 			if(testConnFirst)
-				TestConnection(portName);
+				testConnResult = TestConnection(portName);
 
 			if (testConnResult == 0)
 			{
