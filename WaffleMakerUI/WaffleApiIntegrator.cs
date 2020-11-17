@@ -12,7 +12,7 @@ namespace WaffleMakerUI
 {
 	class WaffleApiIntegrator
 	{
-		private static readonly HttpClient httpClient = new HttpClient();
+		private static readonly HttpClient httpClient = new HttpClient(new WinHttpHandler());
 
 		//testing
 		private const string host = "https://postman-echo.com";// https://virtserver.swaggerhub.com";
@@ -41,7 +41,7 @@ namespace WaffleMakerUI
 			};
 			string query = "?chocolate_numbers=" + chocolateCount;
 
-			StringContent bodyJson = new StringContent(JsonConvert.SerializeObject(body), System.Text.Encoding.UTF8, "application/json");
+			StringContent bodyJson = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
 
 			HttpResponseMessage result = await httpClient.PostAsync(host + baseUri + orderApiPath + query, bodyJson);
 			bodyJson.Dispose();
@@ -59,7 +59,7 @@ namespace WaffleMakerUI
 					//testing
 					MessageBox.Show(JsonConvert.SerializeObject(data["json"]));
 
-					//NewOrderResponse response = new NewOrderResponse(result.StatusCode, bool.Parse(data["accepted"]), int.Parse(data["order_id"]));
+					//NewOrderResponse response = new NewOrderResponse(result.StatusCode, bool.Parse(data["accepted"]), int.Parse((string)data["order_id"]));
 					//testing
 					NewOrderResponse response = new NewOrderResponse(result.StatusCode, false, -1);
 					return response;
@@ -73,6 +73,58 @@ namespace WaffleMakerUI
 			}
 
 			return new NewOrderResponse(HttpStatusCode.BadRequest, false, -1);
+		}
+
+		public async Task<bool?> TrackWaffleOrder(int orderId)
+		{
+			Dictionary<string, string> body = new Dictionary<string, string>()
+			{
+				{ "order_id", orderId.ToString() }
+			};
+
+			StringContent bodyJson = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
+
+			HttpRequestMessage requestToSend = new HttpRequestMessage()
+			{
+				Method = HttpMethod.Get,
+				RequestUri = new Uri(host + baseUri + orderApiPath),
+				Content = bodyJson
+			};
+
+			HttpResponseMessage result = await httpClient.SendAsync(requestToSend);
+			bodyJson.Dispose();
+
+			if (result != null)
+			{
+				try
+				{
+					string dataString = await result.Content.ReadAsStringAsync();
+					//testing
+					MessageBox.Show(dataString);
+
+					Dictionary<string, object> data = JsonConvert.DeserializeObject<Dictionary<string, object>>(dataString);
+
+					//testing
+					MessageBox.Show(JsonConvert.SerializeObject(data["json"]));
+
+					if (result.StatusCode != HttpStatusCode.Created)
+						return null;
+					else
+					{
+						if (int.Parse((string)data["order_status"]) == 0)
+							return false;
+						else
+							return true;
+					}
+				}
+				catch (Exception)
+				{
+					NewOrderResponse response = new NewOrderResponse(HttpStatusCode.BadRequest, false, -1);
+					return null;
+				}
+			}
+
+			return null;
 		}
 	}
 }

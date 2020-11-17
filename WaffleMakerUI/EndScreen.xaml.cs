@@ -20,6 +20,8 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class EndScreen : Window
 	{
+		private static object lockObj = new object();
+
 		public EndScreen()
 		{
 			InitializeComponent();
@@ -27,10 +29,13 @@ namespace WaffleMakerUI
 
 		void ResetToWelcomeScreen()
 		{
-			WaffleMachine.Get_Instance().Reset();
-			WelcomeScreen ws = new WelcomeScreen();
-			ws.Show();
-			Close();
+			lock (lockObj)
+			{
+				WaffleMachine.Get_Instance().Reset();
+				WelcomeScreen ws = new WelcomeScreen();
+				ws.Show();
+				Close();
+			}
 		}
 
 		private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -38,15 +43,12 @@ namespace WaffleMakerUI
 			ResetToWelcomeScreen();
 		}
 
-		private void Window_Loaded(object sender, RoutedEventArgs e)
+		private async void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			DispatcherTimer timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(20) };
-			timer.Tick += (sender, args) =>
-			{
-				timer.Stop();
+			await Task.Delay(10000);
+
+			if(IsLoaded)
 				ResetToWelcomeScreen();
-			};
-			timer.Start();
 		}
 	}
 }

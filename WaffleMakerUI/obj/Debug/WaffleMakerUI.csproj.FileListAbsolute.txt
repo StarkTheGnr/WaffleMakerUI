@@ -33,3 +33,13 @@ C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Deb
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaffleMakerUI.pdb
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Buffers.dll
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Memory.dll
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Net.Http.WinHttpHandler.dll
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Buffers.xml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Memory.xml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Net.Http.WinHttpHandler.xml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

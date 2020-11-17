@@ -87,7 +87,8 @@ namespace WaffleMakerUI
 			WaffleMachine wm = WaffleMachine.Get_Instance();
 
 			WaffleApiIntegrator.NewOrderResponse response = await integrator.RequestWaffleOrder(wm.GetWaffleCount(), wm.GetChocolateWaffleCount());
-			if (response.statusCode != System.Net.HttpStatusCode.OK)
+			//testing (remove false)
+			if (true && (response.statusCode != System.Net.HttpStatusCode.OK || response.accepted == false || response.orderId == -1))
 			{
 				ErrorScreen es = new ErrorScreen();
 				es.ShowActivated = true;
@@ -96,7 +97,7 @@ namespace WaffleMakerUI
 			}
 			else
 			{
-				WaitingScreen ws = new WaitingScreen();
+				WaitingScreen ws = new WaitingScreen(response.orderId);
 				ws.ShowActivated = true;
 				ws.Show();
 				Close();
