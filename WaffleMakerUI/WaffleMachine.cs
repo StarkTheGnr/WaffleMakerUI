@@ -9,8 +9,8 @@ namespace WaffleMakerUI
 {
 	class WaffleMachine
 	{
-		static object lockVar = new object();
-		public static WaffleMachine wm_instance;
+		private static object lockVar = new object();
+		private static WaffleMachine wm_instance;
 
 		private int waffles = 0;
 		private int chocolateWaffles = 0;

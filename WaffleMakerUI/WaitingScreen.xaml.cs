@@ -25,5 +25,7 @@ namespace WaffleMakerUI
 		{
 			InitializeComponent();
 		}
+
+		
 	}
 }

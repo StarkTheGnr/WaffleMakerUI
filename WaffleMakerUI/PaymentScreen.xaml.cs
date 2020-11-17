@@ -65,12 +65,13 @@ namespace WaffleMakerUI
 			Task<int> transactionTask = posHandler.DoTransaction(totalToPay, false);
 
 			int transResult = await transactionTask;
+
+			//testing
 			lblDebug.Content += " " + transResult;
-			if(transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
+			//testing (move in if)
+			RequestNewOrder();
+			if (transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
 			{
-				WaitingScreen ws = new WaitingScreen();
-				ws.Show();
-				Close();
 			}
 		}
 
@@ -78,6 +79,28 @@ namespace WaffleMakerUI
 		{
 			double marginLeft = lblTotalPriceDesc.Margin.Left + lblTotalPriceDesc.ActualWidth;
 			lblDesc2.Margin = new Thickness(marginLeft, lblDesc2.Margin.Top, 0, 0);
+		}
+
+		private async void RequestNewOrder()
+		{
+			WaffleApiIntegrator integrator = new WaffleApiIntegrator();
+			WaffleMachine wm = WaffleMachine.Get_Instance();
+
+			WaffleApiIntegrator.NewOrderResponse response = await integrator.RequestWaffleOrder(wm.GetWaffleCount(), wm.GetChocolateWaffleCount());
+			if (response.statusCode != System.Net.HttpStatusCode.OK)
+			{
+				ErrorScreen es = new ErrorScreen();
+				es.ShowActivated = true;
+				es.Show();
+				Close();
+			}
+			else
+			{
+				WaitingScreen ws = new WaitingScreen();
+				ws.ShowActivated = true;
+				ws.Show();
+				Close();
+			}
 		}
 
 		private void btnCancel_Click(object sender, RoutedEventArgs e)

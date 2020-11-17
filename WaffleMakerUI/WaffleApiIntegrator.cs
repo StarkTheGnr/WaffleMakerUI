@@ -14,15 +14,16 @@ namespace WaffleMakerUI
 	{
 		private static readonly HttpClient httpClient = new HttpClient();
 
-		private const string host = "https://virtserver.swaggerhub.com";
-		private const string baseUri = "/NU024/Waffle_Vending_Machine/1.0.0";
-		private const string orderApiPath = "/new_order";
+		//testing
+		private const string host = "https://postman-echo.com";// https://virtserver.swaggerhub.com";
+		private const string baseUri = "";//"/NU024/Waffle_Vending_Machine/1.0.0";
+		private const string orderApiPath = "/post";//"/new_order";
 
 		public struct NewOrderResponse
 		{
-			HttpStatusCode statusCode;
-			bool accepted;
-			int orderId;
+			public HttpStatusCode statusCode;
+			public bool accepted;
+			public int orderId;
 
 			public NewOrderResponse(HttpStatusCode newStatusCode, bool isAccepted, int newOrderId)
 			{
@@ -47,12 +48,28 @@ namespace WaffleMakerUI
 
 			if(result != null)
 			{
-				string dataString = await result.Content.ReadAsStringAsync();
-				MessageBox.Show(dataString);
-				Dictionary<string, string> data = (Dictionary<string, string>)JsonConvert.DeserializeObject(dataString, typeof(Dictionary<string, string>));
+				try
+				{
+					string dataString = await result.Content.ReadAsStringAsync();
+					//testing
+					MessageBox.Show(dataString);
 
-				NewOrderResponse response = new NewOrderResponse(result.StatusCode, bool.Parse(data["accepted"]), int.Parse(data["order_id"]));
-				return response;
+					Dictionary<string, object> data = JsonConvert.DeserializeObject<Dictionary<string, object>>(dataString);
+
+					//testing
+					MessageBox.Show(JsonConvert.SerializeObject(data["json"]));
+
+					//NewOrderResponse response = new NewOrderResponse(result.StatusCode, bool.Parse(data["accepted"]), int.Parse(data["order_id"]));
+					//testing
+					NewOrderResponse response = new NewOrderResponse(result.StatusCode, false, -1);
+					return response;
+				}
+				catch(Exception)
+				{
+					NewOrderResponse response = new NewOrderResponse(HttpStatusCode.BadRequest, false, -1);
+					return response;
+				}
+				
 			}
 
 			return new NewOrderResponse(HttpStatusCode.BadRequest, false, -1);
