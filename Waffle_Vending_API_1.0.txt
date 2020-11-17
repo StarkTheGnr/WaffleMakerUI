@@ -1,0 +1,76 @@
+swagger: '2.0'
+info:
+  description: Waffle Machine Simple Api.
+  version: 1.0.0
+  title: Simple API For Waffle Machine
+  # put the contact info for your development or API team
+  contact:
+    email: hazemkhaled024@gmail.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /new_order:
+    post:
+      tags:
+      - developers
+      summary: Request a new order.
+      operationId: newOrder
+      description: |
+        By Sending the right values and the machine does not do something you can request a new waffle order through this api.
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: waffle_quantity
+        description:  Total number of waffles.
+        required: true
+        type: number
+        minimum: 1
+      - in: query
+        name: chocalate_numbers
+        description: Total number of chocalate needed.
+        type: integer
+        minimum: 0
+      responses:
+        200:
+          description: State of new order if it's accepted or not.
+            ["accepted":true, "order_id": 123]//Accepted.
+            ["accepted":false, "order_id": NULL]//Not Accepted.
+        400:
+          description: bad input parameter
+    get:
+      tags:
+      - Developer
+      summary: Track order.
+      operationId: trackOrder
+      description: Know the state of order.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: order_id
+        description: ID of the order which has been requested.
+      responses:
+        201:
+          description: State of order.
+            ["order_status": 0] // In progress.
+            ["order_status": 1] // Finsihed.
+        400:
+          description: invalid order_id
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /NU024/Waffle_Vending_Machine/1.0.0
+schemes:
+ - https
