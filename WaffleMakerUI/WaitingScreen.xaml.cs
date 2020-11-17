@@ -19,6 +19,8 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class WaitingScreen : Window
 	{
+		WaffleApiIntegrator integrator = new WaffleApiIntegrator();
+
 		public WaitingScreen()
 		{
 			InitializeComponent();

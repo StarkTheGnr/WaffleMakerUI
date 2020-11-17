@@ -31,3 +31,5 @@ C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Deb
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaffleMakerUI.csproj.CopyComplete
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaffleMakerUI.exe
 C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\obj\Debug\WaffleMakerUI.pdb
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\theha\Desktop\Nile Uni\Waffle Maker\WaffleMakerUI\WaffleMakerUI\bin\Debug\Newtonsoft.Json.xml
