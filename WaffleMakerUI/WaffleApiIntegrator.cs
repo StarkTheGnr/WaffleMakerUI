@@ -87,25 +87,24 @@ namespace WaffleMakerUI
 			HttpRequestMessage requestToSend = new HttpRequestMessage()
 			{
 				Method = HttpMethod.Get,
-				RequestUri = new Uri(host + baseUri + orderApiPath),
+				RequestUri = new Uri(host + baseUri + "/get"),//testing orderApiPath),
 				Content = bodyJson
 			};
 
 			HttpResponseMessage result = await httpClient.SendAsync(requestToSend);
 			bodyJson.Dispose();
-
 			if (result != null)
 			{
 				try
 				{
 					string dataString = await result.Content.ReadAsStringAsync();
 					//testing
-					MessageBox.Show(dataString);
+					MessageBox.Show("ds " + dataString);
 
 					Dictionary<string, object> data = JsonConvert.DeserializeObject<Dictionary<string, object>>(dataString);
 
 					//testing
-					MessageBox.Show(JsonConvert.SerializeObject(data["json"]));
+					MessageBox.Show("serialized " + JsonConvert.SerializeObject(data["args"]));
 
 					if (result.StatusCode != HttpStatusCode.Created)
 						return null;
@@ -117,9 +116,9 @@ namespace WaffleMakerUI
 							return true;
 					}
 				}
-				catch (Exception)
+				catch (Exception ex)
 				{
-					NewOrderResponse response = new NewOrderResponse(HttpStatusCode.BadRequest, false, -1);
+					MessageBox.Show(ex.Message);
 					return null;
 				}
 			}

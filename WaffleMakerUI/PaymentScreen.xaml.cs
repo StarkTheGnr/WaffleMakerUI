@@ -88,7 +88,7 @@ namespace WaffleMakerUI
 
 			WaffleApiIntegrator.NewOrderResponse response = await integrator.RequestWaffleOrder(wm.GetWaffleCount(), wm.GetChocolateWaffleCount());
 			//testing (remove false)
-			if (true && (response.statusCode != System.Net.HttpStatusCode.OK || response.accepted == false || response.orderId == -1))
+			if (false && (response.statusCode != System.Net.HttpStatusCode.OK || response.accepted == false || response.orderId == -1))
 			{
 				ErrorScreen es = new ErrorScreen();
 				es.ShowActivated = true;
