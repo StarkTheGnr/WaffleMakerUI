@@ -64,8 +64,8 @@
                 </Button>
             </Grid>
         </Grid>
-        <Label x:Name="lblHello" Content="Hello!" HorizontalContentAlignment="Left" Margin="352,20,352,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblOrder" Content="Please enter your order" HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" Width="Auto" Margin="237,65,237,0" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblHello" Content="Hello!" HorizontalContentAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblOrder" Content="Please enter your order" HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" Width="Auto" Margin="0,65,0,0" Grid.ColumnSpan="2"/>
         <Button x:Name="btnConfirm" Content="Confirm Order" Margin="0,0,0,115" Background="White" FontSize="20" HorizontalAlignment="Center" Width="170" Height="80" VerticalAlignment="Bottom" Click="btnConfirm_Click" Grid.Row="1" Grid.ColumnSpan="2"/>
         <Button x:Name="btnAdmin" Content="Admin" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="105" Height="38" Background="#FFDDF796" Click="btnAdmin_Click" Grid.Row="1" Grid.Column="1"/>
     </Grid>

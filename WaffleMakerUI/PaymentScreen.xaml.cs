@@ -77,6 +77,7 @@ namespace WaffleMakerUI
 			lblDebug.Content += " " + transResult;
 			//testing (move in if)
 			RequestNewOrder();
+			//testing (remove true)
 			if (true || transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
 			{
 			}
