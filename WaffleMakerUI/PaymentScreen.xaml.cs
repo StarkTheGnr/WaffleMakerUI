@@ -57,9 +57,16 @@ namespace WaffleMakerUI
 			lblTotalPriceDesc.Content = total + " EGP";
 		}
 
-		private async void Window_Loaded(object sender, RoutedEventArgs e)
+		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			RepositionDescriptionLabel();
+
+			InitiateNewOrder();
+		}
+
+		private async void InitiateNewOrder()
+		{
+			await Task.Delay(10); //This is to allow time for the UI to be loaded before starting. (Prevents white screen on showing window)
 
 			float totalToPay = WaffleMachine.Get_Instance().CalculateTotal();
 			Task<int> transactionTask = posHandler.DoTransaction(totalToPay, false);

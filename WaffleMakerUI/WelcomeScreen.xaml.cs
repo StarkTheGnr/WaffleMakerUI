@@ -70,7 +70,7 @@ namespace WaffleMakerUI
 			if (wm.GetWaffleCount() > 0)
 			{
 				PaymentScreen ps = new PaymentScreen();
-				ps.Show();
+				ps.Visibility = Visibility.Visible;
 				Close();
 			}
 		}
