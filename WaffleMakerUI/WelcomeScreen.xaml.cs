@@ -74,5 +74,25 @@ namespace WaffleMakerUI
 				Close();
 			}
 		}
+
+		private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+		{
+			if (IsLoaded)
+			{
+				if (e.WidthChanged)
+				{
+					double diff = e.NewSize.Width - e.PreviousSize.Width;
+					gridWaffleMain.Width += diff / 2;
+					gridChocolateMain.Width += diff / 2;
+				}
+
+				if (e.HeightChanged)
+				{
+					double diff = e.NewSize.Height - e.PreviousSize.Height;
+					gridWaffleMain.Height += diff / 2;
+					gridChocolateMain.Height += diff / 2;
+				}
+			}
+		}
 	}
 }
