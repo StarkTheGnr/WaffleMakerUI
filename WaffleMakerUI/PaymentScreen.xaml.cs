@@ -77,8 +77,15 @@ namespace WaffleMakerUI
 			lblDebug.Content += " " + transResult;
 			//testing (move in if)
 			RequestNewOrder();
-			if (transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
+			if (true || transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
 			{
+			}
+			else
+			{
+				ErrorScreen es = new ErrorScreen();
+				es.ShowActivated = true;
+				es.Show();
+				Close();
 			}
 		}
 
