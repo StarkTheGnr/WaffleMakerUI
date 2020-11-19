@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WaffleMakerUI"
         mc:Ignorable="d"
-        Title="Administrator Login" Height="794" Width="800">
+        Title="Administrator Login" Height="794" Width="800" SizeChanged="Window_SizeChanged">
     <Grid>
         <Label x:Name="lblPass" Content="Please enter your admin password:" HorizontalAlignment="Left" Margin="81,259,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="lblWarning" Content="*If you are not an admin or you came here by mistake, please press the back button" HorizontalAlignment="Left" Margin="81,228,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
@@ -14,7 +14,7 @@
             <Image x:Name="imgBack" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="66" Source="Back-Arrow-Icon-PNG.png"/>
         </Button>
         <Button x:Name="btnBack" Content="Back to Welcome Screen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="203" Height="74" Background="White" FontSize="16" RenderTransformOrigin="0.571,0.568" Click="btnBack_Click"/>
-        <Button x:Name="btnLogin" Content="Login as Admin" HorizontalAlignment="Left" Margin="301,385,0,0" VerticalAlignment="Top" Width="158" Height="66" Background="White" FontSize="16" RenderTransformOrigin="0.571,0.568" Click="btnLogin_Click"/>
-        <Label x:Name="lblError" Content="Password is incorrect. Please try again!" HorizontalAlignment="Left" Margin="233,456,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Red" Visibility="Hidden"/>
+        <Button x:Name="btnLogin" Content="Login as Admin" HorizontalAlignment="Center" Margin="0,385,0,0" VerticalAlignment="Top" Width="158" Height="66" Background="White" FontSize="16" RenderTransformOrigin="0.571,0.568" Click="btnLogin_Click"/>
+        <Label x:Name="lblError" Content="Password is incorrect. Please try again!" HorizontalAlignment="Center" Margin="0,456,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Red" Visibility="Hidden"/>
     </Grid>
 </Window>
