@@ -20,6 +20,8 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class EndScreen : Window
 	{
+		private const int RETURN_TIMEOUT = 10000;
+
 		private static object lockObj = new object();
 
 		public EndScreen()
@@ -45,7 +47,7 @@ namespace WaffleMakerUI
 
 		private async void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			await Task.Delay(10000);
+			await Task.Delay(RETURN_TIMEOUT);
 
 			if(IsLoaded)
 				ResetToWelcomeScreen();

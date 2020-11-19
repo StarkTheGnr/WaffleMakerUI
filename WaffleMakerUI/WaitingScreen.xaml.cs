@@ -19,7 +19,7 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class WaitingScreen : Window
 	{
-		private const int delayBetweenTrackRequests = 10000;
+		private const int RETURN_TIMEOUT = 10000;
 
 		private WaffleApiIntegrator integrator = new WaffleApiIntegrator();
 		private int orderId = -1;
@@ -35,7 +35,7 @@ namespace WaffleMakerUI
 			bool? orderDone = false;
 			while (orderDone == false)
 			{
-				await Task.Delay(delayBetweenTrackRequests);
+				await Task.Delay(RETURN_TIMEOUT);
 				if (!IsLoaded)
 					return false;
 
