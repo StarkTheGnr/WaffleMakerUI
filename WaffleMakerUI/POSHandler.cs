@@ -14,9 +14,9 @@ namespace WaffleMakerUI
 	{
 		public string portName = "COM1";
 		public POSCardTransResponse response;
+		public ReferenceNumber referenceNumber = new ReferenceNumber();
 
 		PaxPOSECRDriver driver = new PaxPOSECRDriver();
-		ReferenceNumber referenceNumber = new ReferenceNumber();
 
 		public POSHandler(string port)
 		{

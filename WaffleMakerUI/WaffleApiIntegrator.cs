@@ -33,17 +33,19 @@ namespace WaffleMakerUI
 			}
 		}
 
-		public async Task<NewOrderResponse> RequestWaffleOrder(int waffleCount, int chocolateCount)
+		public async Task<NewOrderResponse> RequestWaffleOrder(int waffleCount, int chocolateCount, string referenceNum)
 		{
+			MessageBox.Show(referenceNum);
 			Dictionary<string, string> body = new Dictionary<string, string>()
 			{
-				{ "waffle_quantity", waffleCount.ToString() }
+				{ "waffle_quantity", waffleCount.ToString() },
+				{ "chocolate_numbers", chocolateCount.ToString() },
+				{ "transaction_number", referenceNum.ToString() }
 			};
-			string query = "?chocolate_numbers=" + chocolateCount;
 
 			StringContent bodyJson = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
 
-			HttpResponseMessage result = await httpClient.PostAsync(host + baseUri + orderApiPath + query, bodyJson);
+			HttpResponseMessage result = await httpClient.PostAsync(host + baseUri + orderApiPath, bodyJson);
 			bodyJson.Dispose();
 
 			if(result != null)
@@ -77,22 +79,15 @@ namespace WaffleMakerUI
 
 		public async Task<bool?> TrackWaffleOrder(int orderId)
 		{
-			Dictionary<string, string> body = new Dictionary<string, string>()
-			{
-				{ "order_id", orderId.ToString() }
-			};
-
-			StringContent bodyJson = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
+			string query = "?order_id=" + orderId;
 
 			HttpRequestMessage requestToSend = new HttpRequestMessage()
 			{
 				Method = HttpMethod.Get,
-				RequestUri = new Uri(host + baseUri + "/get"),//testing orderApiPath),
-				Content = bodyJson
+				RequestUri = new Uri(host + baseUri + "/get" + query),//testing orderApiPath),
 			};
 
 			HttpResponseMessage result = await httpClient.SendAsync(requestToSend);
-			bodyJson.Dispose();
 			if (result != null)
 			{
 				try
