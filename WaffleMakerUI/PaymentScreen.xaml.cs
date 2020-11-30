@@ -76,7 +76,7 @@ namespace WaffleMakerUI
 			//testing
 			lblDebug.Content += " " + transResult;
 			//testing (move in if)
-			RequestNewOrder(posHandler.referenceNumber.GetLastTransactionRNo(false));
+			RequestNewOrder(posHandler.referenceNumber.GetLastTransactionRNo(false), totalToPay);
 			//testing (remove true)
 			if (true || transResult == 0 && posHandler.response != null && posHandler.response.transStatus == PaxPOSECR.POSTransStatus.APPROVED)
 			{
@@ -96,12 +96,12 @@ namespace WaffleMakerUI
 			lblDesc2.Margin = new Thickness(marginLeft, lblDesc2.Margin.Top, 0, 0);
 		}
 
-		private async void RequestNewOrder(string referenceNum)
+		private async void RequestNewOrder(string referenceNum, float amount)
 		{
 			WaffleApiIntegrator integrator = new WaffleApiIntegrator();
 			WaffleMachine wm = WaffleMachine.Get_Instance();
 
-			WaffleApiIntegrator.NewOrderResponse response = await integrator.RequestWaffleOrder(wm.GetWaffleCount(), wm.GetChocolateWaffleCount(), referenceNum);
+			WaffleApiIntegrator.NewOrderResponse response = await integrator.RequestWaffleOrder(wm.GetWaffleCount(), wm.GetChocolateWaffleCount(), referenceNum, amount);
 			//testing (remove false)
 			if (false && (response.statusCode != System.Net.HttpStatusCode.OK || response.accepted == false || response.orderId == -1))
 			{

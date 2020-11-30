@@ -33,14 +33,15 @@ namespace WaffleMakerUI
 			}
 		}
 
-		public async Task<NewOrderResponse> RequestWaffleOrder(int waffleCount, int chocolateCount, string referenceNum)
+		public async Task<NewOrderResponse> RequestWaffleOrder(int waffleCount, int chocolateCount, string referenceNum, float amount)
 		{
 			MessageBox.Show(referenceNum);
 			Dictionary<string, string> body = new Dictionary<string, string>()
 			{
 				{ "waffle_quantity", waffleCount.ToString() },
 				{ "chocolate_numbers", chocolateCount.ToString() },
-				{ "transaction_number", referenceNum.ToString() }
+				{ "transaction_number", referenceNum.ToString() },
+				{ "amount_paid", amount.ToString() }
 			};
 
 			StringContent bodyJson = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
