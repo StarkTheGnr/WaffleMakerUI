@@ -15,9 +15,10 @@ namespace WaffleMakerUI
 		private static readonly HttpClient httpClient = new HttpClient(new WinHttpHandler());
 
 		//testing
-		private const string host = "https://postman-echo.com";// https://virtserver.swaggerhub.com";
-		private const string baseUri = "";//"/NU024/Waffle_Vending_Machine/1.0.0";
-		private const string orderApiPath = "/post";//"/new_order";
+		private const string host = "http://localhost:8000"; //No slash at the end
+		private const string baseUri = "";
+		private const string orderApiPath = "/new_order";
+		private const string trackOrderApiPath = "/track_order";
 
 		public struct NewOrderResponse
 		{
@@ -35,7 +36,6 @@ namespace WaffleMakerUI
 
 		public async Task<NewOrderResponse> RequestWaffleOrder(int waffleCount, int chocolateCount, string referenceNum, float amount)
 		{
-			MessageBox.Show(referenceNum);
 			Dictionary<string, string> body = new Dictionary<string, string>()
 			{
 				{ "waffle_quantity", waffleCount.ToString() },
@@ -54,21 +54,16 @@ namespace WaffleMakerUI
 				try
 				{
 					string dataString = await result.Content.ReadAsStringAsync();
-					//testing
-					MessageBox.Show(dataString);
 
 					Dictionary<string, object> data = JsonConvert.DeserializeObject<Dictionary<string, object>>(dataString);
 
-					//testing
-					MessageBox.Show(JsonConvert.SerializeObject(data["json"]));
-
-					//NewOrderResponse response = new NewOrderResponse(result.StatusCode, bool.Parse(data["accepted"]), int.Parse((string)data["order_id"]));
-					//testing
-					NewOrderResponse response = new NewOrderResponse(result.StatusCode, false, -1);
+					NewOrderResponse response = new NewOrderResponse(result.StatusCode, bool.Parse(data["accepted"].ToString()), int.Parse(data["order_id"].ToString()));
 					return response;
 				}
-				catch(Exception)
+				catch(Exception ex)
 				{
+					MessageBox.Show(ex.Message);
+
 					NewOrderResponse response = new NewOrderResponse(HttpStatusCode.BadRequest, false, -1);
 					return response;
 				}
@@ -85,7 +80,7 @@ namespace WaffleMakerUI
 			HttpRequestMessage requestToSend = new HttpRequestMessage()
 			{
 				Method = HttpMethod.Get,
-				RequestUri = new Uri(host + baseUri + "/get" + query),//testing orderApiPath),
+				RequestUri = new Uri(host + baseUri + trackOrderApiPath + query)
 			};
 
 			HttpResponseMessage result = await httpClient.SendAsync(requestToSend);
@@ -94,19 +89,13 @@ namespace WaffleMakerUI
 				try
 				{
 					string dataString = await result.Content.ReadAsStringAsync();
-					//testing
-					MessageBox.Show("ds " + dataString);
 
 					Dictionary<string, object> data = JsonConvert.DeserializeObject<Dictionary<string, object>>(dataString);
-
-					//testing
-					MessageBox.Show("serialized " + JsonConvert.SerializeObject(data["args"]));
-
 					if (result.StatusCode != HttpStatusCode.Created)
 						return null;
 					else
 					{
-						if (int.Parse((string)data["order_status"]) == 0)
+						if (int.Parse(data["order_status"].ToString()) == 0)
 							return false;
 						else
 							return true;
