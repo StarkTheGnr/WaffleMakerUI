@@ -6,35 +6,38 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:WaffleMakerUI"
         mc:Ignorable="d"
-        Title="Your Receipt" Height="800" Width="800">
+        Title="Your Receipt" Height="800" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <Label x:Name="lblTitle" Content="Your Receipt" HorizontalAlignment="Left" Margin="285,29,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="164" Margin="258,120,0,0" VerticalAlignment="Top" Width="276">
+        <Label x:Name="lblTitle" Content="Your Receipt" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="164" Margin="0,120,0,0" VerticalAlignment="Top" Width="276">
             <Grid VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Margin="5,10,0,0">
-                    <Label x:Name="lblWafflesCount" Content="Waffles x3" FontSize="16"/>
-                    <Label x:Name="lblChocolateCount" Content="Chocolate x3" FontSize="16"/>
-                    <Label x:Name="lblTaxes" Content="Taxes(14%)" FontSize="16"/>
+                    <Label x:Name="lblWafflesCount" Content="Waffles x0" FontSize="16"/>
+                    <Label x:Name="lblChocolateCount" Content="Chocolate x3" FontSize="16" Visibility="Hidden"/>
+                    <Label x:Name="lblTaxes" Content="Taxes(14%)" FontSize="16" Visibility="Hidden"/>
                     <Label x:Name="lblTotal" Margin="0,15,0,0" Content="Total" FontSize="18" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Margin="5,10,0,0" HorizontalAlignment="Right" Grid.Column="1">
-                    <Label x:Name="lblWafflesPrice" Margin="0,0,20,0" Content="30 EGP" FontSize="16"/>
-                    <Label x:Name="lblChocolatePrice" Margin="0,0,20,0" Content="15 EGP" FontSize="16"/>
-                    <Label x:Name="lblTaxAmount" Margin="0,0,20,0" Content="6.3 EGP" FontSize="16"/>
-                    <Label x:Name="lblTotalPrice" Margin="0,15,20,0" Content="51.3 EGP" FontSize="18" FontWeight="Bold"/>
+                    <Label x:Name="lblWafflesPrice" Margin="0,0,20,0" Content="00 EGP" FontSize="16"/>
+                    <Label x:Name="lblChocolatePrice" Margin="0,0,20,0" Content="15 EGP" FontSize="16" Visibility="Hidden"/>
+                    <Label x:Name="lblTaxAmount" Margin="0,0,20,0" Content="6.3 EGP" FontSize="16" Visibility="Hidden"/>
+                    <Label x:Name="lblTotalPrice" Margin="0,15,20,0" Content="00 EGP" FontSize="18" FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
         </Border>
-        <Separator HorizontalAlignment="Left" Height="19" Margin="258,219,0,0" VerticalAlignment="Top" Width="276"/>
-        <Label x:Name="lblDesc1" Content="Please pay" Margin="133,381,0,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="103"/>
-        <Label x:Name="lblTotalPriceDesc" Margin="232,384,0,0" Content="51.3 EGP" FontSize="18" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Left" Width="90" Height="34" VerticalAlignment="Top"/>
-        <Label x:Name="lblDesc2" Content="in the point of sale below your screen." HorizontalAlignment="Left" Margin="315,381,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <fa:FontAwesome Icon="Refresh" FontSize="30px" Spin="True" Width="30px" Height="30px" Margin="380,474,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button x:Name="btnCancel" Content="Cancel Order" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="160" Background="White" Height="74" FontSize="20"/>
+        <Separator HorizontalAlignment="Center" Height="19" Margin="0,219,0,0" VerticalAlignment="Top" Width="276"/>
+        <fa:FontAwesome Icon="Refresh" FontSize="30px" Spin="True" Width="30px" Height="30px" Margin="0,474,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" />
+        <Button x:Name="btnCancel" Content="Cancel Order" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="160" Background="White" Height="74" FontSize="20" Click="btnCancel_Click"/>
+        <Label x:Name="lblDebug" Content="ErrorCode:" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"/>
+        <Grid HorizontalAlignment="Center" Height="34" Margin="0,384,0,0" VerticalAlignment="Top" Width="580">
+            <Label x:Name="lblDesc1" Content="Please pay" Margin="10,-3,0,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="103"/>
+            <Label x:Name="lblTotalPriceDesc" Margin="113,0,0,0" Content="00 EGP" FontSize="18" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label x:Name="lblDesc2" Content="through the point of sale below your screen." HorizontalAlignment="Left" Margin="182,-3,0,0" VerticalAlignment="Top" FontSize="20"/>
+        </Grid>
 
     </Grid>
 </Window>

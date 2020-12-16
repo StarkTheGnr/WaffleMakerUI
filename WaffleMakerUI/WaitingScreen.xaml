@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:WaffleMakerUI"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Your order is being prepared" Height="800" Width="800">
+        Title="Your order is being prepared" Height="800" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Please wait while your order is being prepared..." HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" FontSize="20"/>
         <fa:FontAwesome Icon="Refresh" FontSize="30px" Spin="True" Width="30px" Height="30px" />
+        <Label Content="Your payment was successful. " HorizontalAlignment="Center" Margin="0,203,0,0" VerticalAlignment="Top" FontSize="20"/>
     </Grid>
 </Window>

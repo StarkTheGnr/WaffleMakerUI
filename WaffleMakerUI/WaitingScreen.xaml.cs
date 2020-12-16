@@ -19,9 +19,42 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class WaitingScreen : Window
 	{
-		public WaitingScreen()
+		private const int RETURN_TIMEOUT = 10000;
+
+		private WaffleApiIntegrator integrator = new WaffleApiIntegrator();
+		private int orderId = -1;
+
+		public WaitingScreen(int newOrderId)
 		{
+			orderId = newOrderId;
 			InitializeComponent();
+		}
+
+		public async Task<bool?> TrackOrderStatus()
+		{
+			bool? orderDone = false;
+			while (orderDone == false)
+			{
+				await Task.Delay(RETURN_TIMEOUT);
+				if (!IsLoaded)
+					return false;
+
+				orderDone = await integrator.TrackWaffleOrder(orderId);
+			}
+
+			return true;
+		}
+
+		private async void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			bool? done = await TrackOrderStatus();
+			if(done == true)
+			{
+				EndScreen es = new EndScreen();
+				es.ShowActivated = true;
+				es.Show();
+				Close();
+			}
 		}
 	}
 }
