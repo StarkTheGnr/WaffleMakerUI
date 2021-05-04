@@ -125,6 +125,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ComPortHandler.cs" />
     <Compile Include="EndScreen.xaml.cs">
       <DependentUpon>EndScreen.xaml</DependentUpon>
     </Compile>
@@ -134,6 +135,7 @@
     <Compile Include="PaymentScreen.xaml.cs">
       <DependentUpon>PaymentScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PhysicalMachine.cs" />
     <Compile Include="POSHandler.cs" />
     <Compile Include="ReferenceNumber.cs" />
     <Compile Include="WaffleApiIntegrator.cs" />

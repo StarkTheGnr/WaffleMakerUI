@@ -46,7 +46,7 @@ namespace WaffleMakerUI
 		{
 			//TODO Password Check
 			string password = txtPass.Password;
-			if(password == "testpass")
+			if(password == WaffleMachine.password)
 			{
 				AdminControlScreen acs = new AdminControlScreen();
 				acs.Show();

@@ -18,13 +18,18 @@ namespace WaffleMakerUI
 		public void initializePort(string portName, int baudRate, Parity parity, int databits, StopBits stopbits, Handshake handshake)
 		{
 			serialPort = new SerialPort(portName, baudRate, parity, databits, stopbits);
-			serialPort.Handshake =  handshake;
+			serialPort.Handshake = handshake;
 		}
 
-		public void Open()
+		public bool Open()
 		{
 			if (!serialPort.IsOpen && CheckPortName(serialPort.PortName))
+			{
 				serialPort.Open();
+				return true;
+			}
+
+			return false;
 		}
 
 		public void Close()
@@ -33,21 +38,22 @@ namespace WaffleMakerUI
 				serialPort.Close();
 		}
 
-		public void SendData(string data)
+		public int SendData(string data)
 		{
 			if (!serialPort.IsOpen)
-				return;
+				return -1;
 
 			serialPort.WriteLine(data);
+			return serialPort.BytesToWrite;
 		}
 
-		public async void ReadData(Action<string> callback)
+		public void ReadDataSync(Action<char> callback)
 		{
 			if (!serialPort.IsOpen)
 				return;
 
-			string output = "";
-			await Task.Run(() => { output = serialPort.ReadLine(); });
+			char output = 'n';
+			output = (char)serialPort.ReadChar();
 
 			callback(output);
 		}

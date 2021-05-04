@@ -20,7 +20,8 @@ namespace WaffleMakerUI
 	/// </summary>
 	public partial class PaymentScreen : Window
 	{
-		POSHandler posHandler = new POSHandler();
+		//POSHandler posHandler = new POSHandler();
+		public ReferenceNumber referenceNumber = new ReferenceNumber();
 
 		public PaymentScreen()
 		{
@@ -61,18 +62,38 @@ namespace WaffleMakerUI
 		{
 			RepositionDescriptionLabel();
 
-			InitiateNewOrder();
+			//InitiateNewOrder();
 		}
 
 		private async void InitiateNewOrder()
 		{
-			await Task.Delay(10); //This is to allow time for the UI to be loaded before starting. (Prevents white screen on showing window)
+			//await Task.Delay(10); //This is to allow time for the UI to be loaded before starting. (Prevents white screen on showing window)
 
 			float totalToPay = WaffleMachine.Get_Instance().CalculateTotal();
-			Task<int> transactionTask = posHandler.DoTransaction(totalToPay, false);
+			string refNum = referenceNumber.GetLastTransactionRNo(true);
 
-			int transResult = await transactionTask;
+			WaffleMachine wm = WaffleMachine.Get_Instance();
 
+			int result = await wm.pm.SendOrder(refNum, wm.GetWaffleCount(), wm.GetChocolateWaffleCount());
+
+			if (result == 0)
+			{
+				WaitingScreen ws = new WaitingScreen();
+				ws.ShowActivated = true;
+				ws.Show();
+				Close();
+			}
+			else
+			{
+				ErrorScreen es = new ErrorScreen();
+				es.ShowActivated = true;
+				es.Show();
+				Close();
+			}	
+
+			#region POS Code
+			/*//Task<int> transactionTask = posHandler.DoTransaction(totalToPay, false);
+			//int transResult = await transactionTask;
 			//testing
 			lblDebug.Content += " " + transResult;
 			//testing remove True to stop simulating PoS
@@ -86,7 +107,8 @@ namespace WaffleMakerUI
 				es.ShowActivated = true;
 				es.Show();
 				Close();
-			}
+			}*/
+			#endregion
 		}
 
 		void RepositionDescriptionLabel()
@@ -123,6 +145,20 @@ namespace WaffleMakerUI
 			WelcomeScreen ws = new WelcomeScreen();
 			ws.Show();
 			Close();
+		}
+
+		private void txtPass_PasswordChanged(object sender, RoutedEventArgs e)
+		{
+			if (txtPass.Password == WaffleMachine.password)
+				btnConfirm.IsEnabled = true;
+			else
+				btnConfirm.IsEnabled = false;
+		}
+
+		private void btnConfirm_Click(object sender, RoutedEventArgs e)
+		{
+			InitiateNewOrder();
+			btnConfirm.IsEnabled = false;
 		}
 	}
 }

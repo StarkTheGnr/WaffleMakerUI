@@ -29,6 +29,25 @@ namespace WaffleMakerUI
 			orderId = newOrderId;
 			InitializeComponent();
 		}
+		public WaitingScreen()
+		{
+			InitializeComponent();
+		}
+
+		public async Task<bool?> TrackOrderStatus_Server()
+		{
+			bool? orderDone = false;
+			while (orderDone == false)
+			{
+				await Task.Delay(RETURN_TIMEOUT);
+				if (!IsLoaded)
+					return false;
+
+				orderDone = await integrator.TrackWaffleOrder(orderId);
+			}
+
+			return true;
+		}
 
 		public async Task<bool?> TrackOrderStatus()
 		{
@@ -39,7 +58,7 @@ namespace WaffleMakerUI
 				if (!IsLoaded)
 					return false;
 
-				orderDone = await integrator.TrackWaffleOrder(orderId);
+				orderDone = (WaffleMachine.Get_Instance().pm.State == PhysicalMachine.MachineState.OrderReady);
 			}
 
 			return true;

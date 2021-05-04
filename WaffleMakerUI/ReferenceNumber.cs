@@ -8,9 +8,9 @@ using System.IO;
 
 namespace WaffleMakerUI
 {
-	class ReferenceNumber
+	public class ReferenceNumber
 	{
-		const long MAX_RNO = 999999999999;
+		const long MAX_RNO = 999999;
 
 		private string lastRNo = "";
 

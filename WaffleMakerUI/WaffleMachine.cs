@@ -12,6 +12,10 @@ namespace WaffleMakerUI
 		private static object lockVar = new object();
 		private static WaffleMachine wm_instance;
 
+		public static string password = "testpass";
+
+		public PhysicalMachine pm = new PhysicalMachine();
+
 		private int waffles = 0;
 		private int chocolateWaffles = 0;
 
@@ -21,6 +25,7 @@ namespace WaffleMakerUI
 		private WaffleMachine() 
 		{
 			LoadPrices();
+			pm.StartReadThread();
 		}
 
 		private void LoadPrices()
